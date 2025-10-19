@@ -1,90 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ane Carvalho 💋</title>
+  <title>Ane está te esperando 💋</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #fff0f5;
-      color: #333;
+      background-color: #ffe4f0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #d63384;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
       text-align: center;
-      padding: 30px;
     }
     h1 {
-      color: #d63384;
+      font-size: 26px;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-in forwards;
+      opacity: 0;
     }
-    .pix-box {
-      background: #ffe4e1;
-      padding: 20px;
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in forwards;
+      opacity: 0;
+    }
+    .loading {
+      border: 6px solid #f8c1d8;
+      border-top: 6px solid #d63384;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    img {
+      width: 220px;
       border-radius: 10px;
-      margin: 20px auto;
-      width: 300px;
+      box-shadow: 0 0 10px rgba(214, 51, 132, 0.4);
+      margin-bottom: 20px;
     }
-    .cta {
-      background: #d63384;
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
-    .cta:hover {
-      background: #c2185b;
-    }
-    .footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #777;
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
+  <h1>Ane Carvalho está preparando algo especial pra você 💋</h1>
+  <p>Ela quer te ver... e te sentir. Não conte pra ninguém 😘</p>
+  <img src="https://depositphotos.com/br/photo/fashion-art-photo-of-beautiful-sensual-woman-in-sexy-lingerie-275225840.html" alt="Mulher sensual em lingerie">
+  <div class="loading"></div>
 
-  <h1>Oiee, Ane Carvalho aqui 😘</h1>
-  <p>Preparei conteúdos exclusivos pra você se deliciar 💋</p>
-  <p>Fotos, vídeos, fantasias... e muito mais. 🔥</p>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3b5b4c9b4f.mp3?filename=sexy-saxophone-10169.mp3" type="audio/mpeg">
+  </audio>
 
-  <div class="pix-box">
-    <h2>Obrigada por me ajudar 💕</h2>
-    <p>Você está muito próximo de conhecer meus conteúdos, vida.</p>
-    <strong>Clica no Botão Abaixo Para Enviar o Comprovante</strong>
-    <p>Tô aqui aguardando 😘</p>
-  </div>
-
-  <a href="https://wa.me/5586998091632?text=Ol%C3%A1%20gata%2C%20veja%20meu%20comprovante%20do%20PIX%2C%20quero%20receber%20seus%20conte%C3%BAdos." target="_blank">
-    <button class="cta">Já fiz o Pix!</button>
-  </a>
-
-  <div class="footer">
-    <p>Após o pagamento, clique no botão acima para enviar o comprovante e receber o acesso completo 💕</p>
-    <p>Conteúdo exclusivo +18. Proibido para menores.</p>
-  </div>
-
-  <!-- Pixel do Facebook -->
   <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;n=f.fbq=function(){
-        n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
-      };
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '382101007899298');
-    fbq('track', 'PageView');
-
-    // Evento de compra com valor
-    fbq('track', 'Purchase', {
-      value: 10.00,
-      currency: 'BRL'
-    });
+    setTimeout(function() {
+      window.location.href = "https://eborges70.github.io/ane-carvalho-page/";
+    }, 4000);
   </script>
-
 </body>
 </html>
-

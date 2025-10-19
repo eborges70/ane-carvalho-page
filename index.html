@@ -40,6 +40,42 @@
       color: #777;
     }
   </style>
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){
+        n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+      };
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '382101007899298');
+    fbq('track', 'PageView');
+
+    // Função para extrair parâmetros da URL
+    function getParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    // Extrai valor da compra da URL
+    const valor = parseFloat(getParam('valor')) || 0;
+
+    // Dispara evento Purchase com valor real
+    if (valor > 0) {
+      fbq('track', 'Purchase', {
+        value: valor,
+        currency: 'BRL',
+        content_name: 'Conteúdo Ane',
+        content_ids: ['ane001'],
+        content_type: 'product'
+      });
+    }
+  </script>
 </head>
 <body>
 
@@ -51,12 +87,12 @@
     <h2>Você está bem próximo de receber os meus conteúdos... 💕</h2>
     <p>Só clicar no botão abaixo e você será direcionado para o meu zap pessoal</p>
     <strong>Depois que conferir o comprovante envio os conteúdos rapidinho ok?</strong>
-    <p>Aguardano você 😘</p>
+    <p>Aguardando você 😘</p>
   </div>
 
   <button class="cta" onclick="window.location.href='https://wa.me/5586988134323?text=Ol%C3%A1%20gata%2C%20confira%20o%20meu%20comprovante%20PIX%2C%20quero%20receber%20os%20seus%20conte%C3%BAdos.'">
-  Já fiz o Pix!
-</button>
+    Já fiz o Pix!
+  </button>
 
   <div class="footer">
     <p>Após a conferência do comprovante PIX o acesso completo aos conteúdos será liberado. 💕</p>
@@ -65,5 +101,3 @@
 
 </body>
 </html>
-
-

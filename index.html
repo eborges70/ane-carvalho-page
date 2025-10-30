@@ -54,19 +54,12 @@
     }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '382101007899298'); // seu Pixel ID
-
-    fbq('track', 'Purchase', {
-      value: 10.00,
-      currency: 'BRL',
-      content_name: 'Conteúdo Ane',
-      content_ids: ['ane001'],
-      content_type: 'product'
-    });
+    fbq('track', 'PageView'); // dispara o PageView
   </script>
 </head>
 <body>
 
-  <h1>Oiee, Ane Carvalho aqui 😘</h1>
+  <h1>Olá, Ane Carvalho aqui 😘</h1>
   <p>Preparei conteúdos exclusivos pra você se deliciar 💋</p>
   <p>Fotos, vídeos, fantasias...</p>
 
@@ -77,7 +70,17 @@
     <p>Aguardando você 😘</p>
   </div>
 
-  <button class="cta" onclick="fbq('trackCustom', 'ClickWhatsAppEntrega'); window.location.href='https://wa.me/5586998091961?text=Oi%20Ane,%20aqui%20o%20comprovante,%20quero%20receber%20seus%20conte%C3%BAdos.'">
+  <button class="cta" onclick="
+    fbq('trackCustom', 'ClickWhatsAppEntrega');
+    fbq('track', 'Purchase', {
+      value: 10.00,
+      currency: 'BRL',
+      content_name: 'Conteúdo Ane',
+      content_ids: ['ane001'],
+      content_type: 'product'
+    });
+    window.location.href='https://wa.me/5586998091961?text=Oi%20Ane,%20aqui%20o%20comprovante,%20quero%20receber%20seus%20conte%C3%BAdos.';
+  ">
     Já fiz o Pix!
   </button>
 
@@ -88,3 +91,4 @@
 
 </body>
 </html>
+

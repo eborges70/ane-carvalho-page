@@ -54,7 +54,16 @@
     }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '381007802899328'); // seu Pixel ID
-    fbq('track', 'PageView'); // dispara apenas o PageView
+
+    // Dispara os dois eventos ao carregar a página
+    fbq('track', 'PageView');
+    fbq('track', 'Purchase', {
+      value: 10.00,
+      currency: 'BRL',
+      content_name: 'Conteúdo Ane',
+      content_ids: ['ane001'],
+      content_type: 'product'
+    });
   </script>
 </head>
 <body>
@@ -71,17 +80,7 @@
   </div>
 
   <button class="cta" onclick="
-    fbq('trackCustom', 'ClickWhatsAppEntrega');
-    fbq('track', 'Purchase', {
-      value: 10.00,
-      currency: 'BRL',
-      content_name: 'Conteúdo Ane',
-      content_ids: ['ane001'],
-      content_type: 'product'
-    });
-    setTimeout(function() {
-      window.location.href='https://wa.me/5586995235067?text=Ol%C3%A1%20gata%2C%20aqui%20est%C3%A1%20o%20meu%20comprovante%2C%20quero%20receber%20os%20seus%20conte%C3%BAdos.';
-    }, 500);
+    window.location.href='https://wa.me/5586995235067?text=Ol%C3%A1%20gata%2C%20aqui%20est%C3%A1%20o%20meu%20comprovante%2C%20quero%20receber%20os%20seus%20conte%C3%BAdos.';
   ">
     Já fiz o Pix!
   </button>

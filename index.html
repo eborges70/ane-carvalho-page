@@ -41,7 +41,7 @@
     }
   </style>
 
-  <!-- Facebook Pixel base code -->
+  <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){
@@ -53,10 +53,7 @@
       s.parentNode.insertBefore(t,s)
     }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '381007802899328'); // seu Pixel ID
-    fbq('init', '783976243590443'); // Pixel 2
-
-    // Dispara os dois eventos ao carregar a página
+    fbq('init', '382101007899298'); // Pixel único
     fbq('track', 'PageView');
     fbq('track', 'Purchase', {
       value: 10.00,
@@ -66,6 +63,11 @@
       content_type: 'product'
     });
   </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=382101007899298&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -93,6 +95,3 @@
 
 </body>
 </html>
-
-
-

@@ -22,14 +22,32 @@
       margin: 20px auto;
       width: 300px;
     }
+    .product-select {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      border: 2px solid #d63384;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+      cursor: pointer;
+    }
+    .product-select:focus {
+      outline: none;
+      border-color: #c2185b;
+      box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.1);
+    }
     .cta {
       background: #d63384;
       color: white;
-      padding: 15px;
+      padding: 15px 30px;
       border: none;
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 10px;
     }
     .cta:hover {
       background: #c2185b;
@@ -38,6 +56,11 @@
       margin-top: 40px;
       font-size: 14px;
       color: #777;
+    }
+    .value-label {
+      font-weight: bold;
+      color: #d63384;
+      margin: 10px 0;
     }
   </style>
 
@@ -53,11 +76,18 @@
       s.parentNode.insertBefore(t,s)
     }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '382101007899298'); // Pixel único
+    // Inicializar todos os Pixels
+    fbq('init', '382101007899298');
+    fbq('init', '547920294409559');
+    fbq('init', '727563020021821');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=382101007899298&ev=Purchase&noscript=1"/>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=547920294409559&ev=Purchase&noscript=1"/>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=727563020021821&ev=Purchase&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 </head>
@@ -71,19 +101,21 @@
     <h2>O que você vai ver é real, intenso e feito com prazer 💕</h2>
     <p>Se você busca algo quente, verdadeiro e feito com vontade, chegou ao lugar certo</p>
     <strong>Depois me conta o que achou ok?</strong>
+    
+    <div class="value-label">Selecione o valor do produto:</div>
+    <select id="productValue" class="product-select">
+      <option value="10.00">R$ 10,00</option>
+      <option value="15.00">R$ 15,00</option>
+      <option value="20.00">R$ 20,00</option>
+      <option value="30.00" selected>R$ 30,00</option>
+      <option value="50.00">R$ 50,00</option>
+      <option value="100.00">R$ 100,00</option>
+    </select>
+    
     <p>Clique no Botão Abaixo 👇</p>
   </div>
 
-  <button class="cta" onclick="
-    fbq('track', 'Purchase', {
-      value: 9.99,
-      currency: 'BRL',
-      content_name: 'Nome do produto ou serviço',
-      content_ids: ['id001'],
-      content_type: 'product'
-    });
-    window.location.href='https://intestinoregulado.my.canva.site/anedelicia';
-  ">
+  <button class="cta" onclick="handlePurchase()">
     CONTEÚDOS AQUI
   </button>
 
@@ -92,7 +124,28 @@
     <p>Conteúdo exclusivo +18. Proibido para menores.</p>
   </div>
 
+  <script>
+    function handlePurchase() {
+      // Obter o valor selecionado
+      const selectElement = document.getElementById('productValue');
+      const selectedValue = parseFloat(selectElement.value);
+      
+      // Disparar evento Purchase para todos os Pixels com o valor selecionado
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Purchase', {
+          value: selectedValue,
+          currency: 'BRL',
+          content_name: 'Conteúdo Exclusivo Ane Carvalho',
+          content_ids: ['ane_carvalho_' + selectedValue],
+          content_type: 'product'
+        });
+      }
+      
+      // Redirecionar para a página
+      window.location.href = 'https://intestinoregulado.my.canva.site/anedelicia';
+    }
+  </script>
+
 </body>
 </html>
-
 

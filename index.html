@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ane Carvalho 💋</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -53,57 +54,84 @@
       s.parentNode.insertBefore(t,s)
     }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '382101007899298'); // Pixel único
+    fbq('init', '382101007899298');
+
+    // PageView apenas no link interno (não visível ao usuário)
+    function handlePageViewClick() {
+      fbq('track', 'PageView');
+    }
+
+    // Purchase somente no botão WhatsApp
+    function handlePurchaseClick() {
+      fbq('track', 'Purchase', {
+        value: 9.99,
+        currency: 'BRL',
+        content_name: 'Guia de Relacionamento',
+        content_ids: ['id001'],
+        content_type: 'product'
+      });
+
+      window.location.href =
+        'https://wa.me/5521981650070?text=Ol%C3%A1%20Ane%2C%20tudo%20bem%3F%20quero%20receber%20o%20guia%20e%20mais%20informa%C3%A7%C3%B5es';
+    }
   </script>
+
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=382101007899298&ev=Purchase&noscript=1"/>
+      src="https://www.facebook.com/tr?id=382101007899298&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
+
 </head>
 <body>
 
   <h1>Oiee, Ane Carvalho aqui 😘</h1>
-  <p>Bem-vinda a este Guia dedicado aos casais que enfrentam 
-desafios e procuram fortalecer a sua relação.</p>
-  <p>DESAFIOS COMO OPORTUNIDADES DE CRESCIMENTO PARA O 
-CASAL</p>
+
+  <p>Posso te mostrar como transformar sua relação ainda hoje?</p>
+  <p>Muitas mulheres me procuram porque sentem que o relacionamento esfriou… mas a verdade é que quase sempre existe um caminho simples para reacender o amor — e ele começa com pequenas mudanças.</p>
 
   <div class="pix-box">
-    <h2>COMO REAVIVAR O AMOR E A INTIMIDADE💕</h2>
-    <p>Esperamos que estas páginas sejam uma fonte de inspiração e 
-orientação para renovar e fortalecer o compromisso mútuo, 
-criando um ambiente onde o amor e o respeito possam prosperar.</p>
-    <strong>O Valor de Uma Relação Saudável e Equilibrada</strong>
-    <p>Clique no Botão Abaixo 👇</p>
+    <h2>Guia Exclusivo: Como Reavivar o Amor e a Intimidade 💕</h2>
+
+    <p>Dentro deste guia você vai descobrir:</p>
+
+    <ul style="text-align:left; max-width:260px; margin:0 auto;">
+      <li>Como reconstruir a conexão emocional</li>
+      <li>Como trazer de volta o carinho e a atenção</li>
+      <li>Como evitar desgastes que afastam o casal</li>
+      <li>Como criar um ambiente onde o amor cresce naturalmente</li>
+    </ul>
+
+    <p>Tudo explicado de forma leve, prática e direta.</p>
+
+    <p><strong>Por que este guia funciona?</strong></p>
+    <p>Porque ele foi criado para mulheres reais, com rotinas reais, que querem ser valorizadas, ouvidas e desejadas novamente.</p>
+
+    <p>Se isso faz sentido pra você, então você está no lugar certo.</p>
   </div>
 
-  <button class="cta" onclick="
-    fbq('track', 'Purchase', {
-      value: 9.99,
-      currency: 'BRL',
-      content_name: 'Nome do produto ou serviço',
-      content_ids: ['id001'],
-      content_type: 'product'
-    });
-    window.location.href='https://wa.me/5521981650070?text=Ol%C3%A1%20Ane%2C%20tudo%20bem%3F%20quero%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20an%C3%BAncio%20de%20relacionamento';
-  ">
+  <h3>💬 Quer receber o guia e falar comigo diretamente?</h3>
+  <p>Clique no botão abaixo para entrar em contato comigo pelo WhatsApp.  
+  Lá eu te envio o guia e, se quiser, posso te orientar de forma personalizada.</p>
+
+  <!-- BOTÃO QUE DISPARA PURCHASE -->
+  <button class="cta" onclick="handlePurchaseClick()">
     EBOOK AQUI
   </button>
 
   <div class="footer">
-    <p>Boa leitura, muitas alegrias e sucesso na sua vida 😚</p>
-    <p>Obrigada!</p>
+    <p>Desejo que este guia seja um divisor de águas na sua vida amorosa.</p>
+    <p>Você merece viver um relacionamento leve, saudável e cheio de carinho.</p>
+    <p>Com carinho, Ane Carvalho 💗</p>
   </div>
+
+  <!-- Link invisível para disparar PageView -->
+  <a href="https://eborges70.github.io/ane-carvalho-page/"
+     onclick="handlePageViewClick()"
+     style="display:none;">
+     rastrear
+  </a>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
 

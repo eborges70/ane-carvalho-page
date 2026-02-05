@@ -11,17 +11,35 @@
       background: #fff0f5;
       color: #333;
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px;
+      margin: 0;
     }
     h1 {
       color: #d63384;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #d63384;
+      margin-top: 0;
+    }
+    p {
+      margin: 8px 0;
     }
     .pix-box {
       background: #ffe4e1;
       padding: 20px;
       border-radius: 10px;
       margin: 20px auto;
-      width: 300px;
+      width: 90%;
+      max-width: 360px;
+      text-align: center;
+    }
+    .pix-box ul {
+      text-align: left;
+      max-width: 280px;
+      margin: 10px auto 0 auto;
+      padding-left: 18px;
     }
     .cta {
       background: #d63384;
@@ -31,6 +49,9 @@
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
+      margin-top: 15px;
+      display: inline-block;
+      text-decoration: none;
     }
     .cta:hover {
       background: #c2185b;
@@ -55,25 +76,6 @@
     }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '382101007899298');
-
-    // PageView apenas no link interno (não visível ao usuário)
-    function handlePageViewClick() {
-      fbq('track', 'PageView');
-    }
-
-    // Purchase somente no botão WhatsApp
-    function handlePurchaseClick() {
-      fbq('track', 'Purchase', {
-        value: 9.99,
-        currency: 'BRL',
-        content_name: 'Guia de Relacionamento',
-        content_ids: ['id001'],
-        content_type: 'product'
-      });
-
-      window.location.href =
-        'https://wa.me/5521981650070?text=Ol%C3%A1%20Ane%2C%20tudo%20bem%3F%20quero%20receber%20o%20guia%20e%20mais%20informa%C3%A7%C3%B5es';
-    }
   </script>
 
   <noscript>
@@ -95,14 +97,14 @@
 
     <p>Dentro deste guia você vai descobrir:</p>
 
-    <ul style="text-align:left; max-width:260px; margin:0 auto;">
+    <ul>
       <li>Como reconstruir a conexão emocional</li>
       <li>Como trazer de volta o carinho e a atenção</li>
       <li>Como evitar desgastes que afastam o casal</li>
       <li>Como criar um ambiente onde o amor cresce naturalmente</li>
     </ul>
 
-    <p>Tudo explicado de forma leve, prática e direta.</p>
+    <p style="margin-top:12px;">Tudo explicado de forma leve, prática e direta.</p>
 
     <p><strong>Por que este guia funciona?</strong></p>
     <p>Porque ele foi criado para mulheres reais, com rotinas reais, que querem ser valorizadas, ouvidas e desejadas novamente.</p>
@@ -114,23 +116,18 @@
   <p>Clique no botão abaixo para entrar em contato comigo pelo WhatsApp.  
   Lá eu te envio o guia e, se quiser, posso te orientar de forma personalizada.</p>
 
-  <!-- BOTÃO QUE DISPARA PURCHASE -->
-  <button class="cta" onclick="handlePurchaseClick()">
-    EBOOK AQUI
-  </button>
+  <!-- BOTÃO SEM PURCHASE -->
+  <a class="cta"
+     href="https://wa.me/5521981650070?text=Ol%C3%A1%20Ane%2C%20tudo%20bem%3F%20quero%20receber%20o%20guia%20e%20mais%20informa%C3%A7%C3%B5es"
+     target="_blank">
+     EBOOK AQUI
+  </a>
 
   <div class="footer">
     <p>Desejo que este guia seja um divisor de águas na sua vida amorosa.</p>
     <p>Você merece viver um relacionamento leve, saudável e cheio de carinho.</p>
     <p>Com carinho, Ane Carvalho 💗</p>
   </div>
-
-  <!-- Link invisível para disparar PageView -->
-  <a href="https://eborges70.github.io/ane-carvalho-page/"
-     onclick="handlePageViewClick()"
-     style="display:none;">
-     rastrear
-  </a>
 
 </body>
 </html>
